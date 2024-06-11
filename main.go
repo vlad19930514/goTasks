@@ -1,17 +1,17 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
 
 func main() {
 	//go run main.go "Hello, its my page: http://localhost123.com See you"
-	if len(os.Args) < 2 {
-		fmt.Println("Please provide a string argument.")
-		return
-	}
-	fmt.Println(CheckLinks(os.Args[1]))
+	reader := bufio.NewReader(os.Stdin)
+	input, _ := reader.ReadString('\n')
+	fmt.Println(CheckLinks(input))
+
 }
 
 func CheckLinks(str string) string {
